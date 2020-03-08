@@ -153,6 +153,14 @@ namespace Nitrogen.DataBase
         int Update<T>(T entity) where T : class;
 
         /// <summary>
+        /// 更新实体扩展。
+        /// </summary>
+        /// <typeparam name="T">T。</typeparam>
+        /// <param name="entity">实体数据。</param>
+        /// <returns>int。</returns>
+        int UpdateEx<T>(T entity) where T : class;
+
+        /// <summary>
         /// 批量更新实体。
         /// </summary>
         /// <typeparam name="T">T。</typeparam>

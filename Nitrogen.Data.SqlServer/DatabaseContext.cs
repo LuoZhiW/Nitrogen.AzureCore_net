@@ -2,8 +2,6 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection;
 
 namespace Nitrogen.Data.SqlServer
 {
@@ -34,6 +32,7 @@ namespace Nitrogen.Data.SqlServer
         /// <param name="modelBuilder">模型创建器</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            // 我把【某软】的一堆傻逼玩意Maping注释了 自定义了个批量变更Table 前缀。
             //System.Data.Entity.Database.SetInitializer<DatabaseContext>(null);
 
             //string assembleFileName = Assembly.GetExecutingAssembly().CodeBase.Replace("Learun.DataBase.SqlServer.DLL", "Learun.Application.Mapping.DLL").Replace("file:///", "");
@@ -47,6 +46,12 @@ namespace Nitrogen.Data.SqlServer
             //    modelBuilder.Configurations.Add(configurationInstance);
             //}
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Types().Configure(t =>
+            {
+                var tableName = t.ClrType.Name;
+                tableName = "T_" + tableName;
+                t.ToTable(tableName);
+            });
         }
         #endregion
     }

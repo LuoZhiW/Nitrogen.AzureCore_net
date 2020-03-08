@@ -8,7 +8,7 @@
         /// <summary>
         /// SqlServer 数据库。
         /// </summary>
-        SQLServer,
+        SqlServer,
 
         /// <summary>
         /// MySql数据库。

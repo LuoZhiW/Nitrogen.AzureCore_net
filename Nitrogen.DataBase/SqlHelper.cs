@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Dapper;
+using Newtonsoft.Json.Linq;
+using Nitrogen.Foundation.Util.DataBase;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Reflection;
@@ -41,6 +45,7 @@ namespace Nitrogen.DataBase
                 return objDataTable;
             }
         }
+
         /// <summary>
         /// 获取实体类键值（缓存）
         /// </summary>
@@ -127,6 +132,51 @@ namespace Nitrogen.DataBase
             sb.Append(" As rowNum, * From (" + strSql + ")  T ) As N Where rowNum > " + num + " And rowNum <= " + num1 + "");
             return sb;
         }
+
+        /// <summary>
+        /// 将对象转化成Dapper可认的参数
+        /// </summary>
+        /// <param name="fieldValueParams">对象</param>
+        /// <returns></returns>
+        public static DynamicParameters FieldValueParamToParameter(List<FieldValueParam> fieldValueParams)
+        {
+            try
+            {
+                var args = new DynamicParameters(new { });
+                foreach (var item in fieldValueParams)
+                {
+                    args.Add(item.name, item.value, (DbType)item.type);
+                }
+                return args;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 将json对象转化成Dapper可认的参数
+        /// </summary>
+        /// <param name="jObject">json对象</param>
+        /// <returns></returns>
+        public static DynamicParameters JObjectToParameter(JObject jObject)
+        {
+            try
+            {
+                var args = new DynamicParameters(new { });
+                foreach (var item in jObject)
+                {
+                    args.Add(item.Key.ToString(), item.Value.ToString());
+                }
+                return args;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         /// <summary>
         /// oracle分页语句
         /// </summary>
@@ -162,6 +212,7 @@ namespace Nitrogen.DataBase
             sb.Append(" T.* From (" + strSql + OrderBy + ")  T )  N Where lrrn > " + num + " And lrrn <= " + num1 + "");
             return sb;
         }
+
         /// <summary>
         /// mysql分页语句
         /// </summary>
