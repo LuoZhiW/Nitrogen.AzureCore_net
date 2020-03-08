@@ -146,7 +146,6 @@ namespace Nitrogen.Data.Repository
         /// <returns></returns>
         public IEnumerable<T> QueryByProc<T>(string procName, object dbParameter) where T : class
         {
-
             return db.QueryByProc<T>(procName, dbParameter);
         }
         #endregion

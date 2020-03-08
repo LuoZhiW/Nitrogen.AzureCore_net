@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nitrogen.Data.MySql", "Nitr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nitrogen.AzureApi", "Nitrogen.AzureApi\Nitrogen.AzureApi.csproj", "{12F6A5C5-38C6-4D77-BC6A-D09AA10319CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nitrogen.Logic", "Nitrogen.Logic\Nitrogen.Logic.csproj", "{BA74B365-DBD2-49B3-95E8-9D1324BCA100}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{12F6A5C5-38C6-4D77-BC6A-D09AA10319CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12F6A5C5-38C6-4D77-BC6A-D09AA10319CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12F6A5C5-38C6-4D77-BC6A-D09AA10319CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA74B365-DBD2-49B3-95E8-9D1324BCA100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA74B365-DBD2-49B3-95E8-9D1324BCA100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA74B365-DBD2-49B3-95E8-9D1324BCA100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA74B365-DBD2-49B3-95E8-9D1324BCA100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
